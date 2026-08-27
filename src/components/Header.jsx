@@ -2,7 +2,6 @@
 import React from 'react';
 import { Github, Search } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
-import Logo from './Logo';
 
 const Header = ({ onSearchClick }) => {
   return (
@@ -10,8 +9,8 @@ const Header = ({ onSearchClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 border-2 border-[#1a1a1a] flex items-center justify-center bg-accent overflow-hidden">
-              <Logo className="w-7 h-7" />
+            <div className="w-12 h-12 flex items-center justify-center bg-accent overflow-hidden">
+              <img src="/LogoG2.png" alt="GWD Logo" className="w-12 h-12" />
             </div>
             <h1 className="font-heading text-xl font-black tracking-tight">
               <span className="text-accent">GWD</span> Hub
