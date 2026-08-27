@@ -1,0 +1,356 @@
+/* src/index.css - tambahkan atau timpa */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/index.css - tambahan warna aksen */
+
+:root {
+  --color-accent: #2563EB;
+  --color-accent-light: #3B82F6;
+  --color-accent-dark: #1D4ED8;
+  --color-secondary: #F97316;
+  --color-secondary-light: #FB923C;
+  --color-accent-bg: #EFF6FF;
+  --color-secondary-bg: #FFF7ED;
+}
+
+.border-accent {
+  border-color: var(--color-accent);
+}
+.bg-accent {
+  background-color: var(--color-accent);
+}
+.text-accent {
+  color: var(--color-accent);
+}
+.border-secondary {
+  border-color: var(--color-secondary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* Stat box dengan aksen */
+.stat-box {
+  border: 2px solid #1a1a1a;
+  background: white;
+  padding: 0.75rem 1rem;
+  position: relative;
+}
+.stat-box .stat-number {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.75rem;
+  color: var(--color-accent);
+}
+.stat-box .stat-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #1a1a1a;
+}
+
+/* Card hover dengan aksen */
+.card-brutalist {
+  border: 2px solid #1a1a1a;
+  background: white;
+  transition: all 0.2s ease;
+}
+.card-brutalist:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg);
+  transform: translateY(-2px);
+}
+.card-brutalist .card-icon {
+  border-color: #1a1a1a;
+  background: white;
+}
+.card-brutalist:hover .card-icon {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg);
+}
+
+/* Tombol aksen */
+.btn-accent {
+  border: 2px solid var(--color-accent);
+  background: var(--color-accent);
+  color: white;
+  transition: all 0.2s ease;
+}
+.btn-accent:hover {
+  background: white;
+  color: var(--color-accent);
+}
+.btn-secondary {
+  border: 2px solid var(--color-secondary);
+  background: var(--color-secondary);
+  color: white;
+  transition: all 0.2s ease;
+}
+.btn-secondary:hover {
+  background: white;
+  color: var(--color-secondary);
+}
+
+/* Badge status dengan warna */
+.status-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid #1a1a1a;
+  text-transform: uppercase;
+}
+.status-live {
+  background: #DCFCE7;
+  border-color: #22C55E;
+  color: #166534;
+}
+.status-dev {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  color: #92400E;
+}
+.status-archived {
+  background: #F3F4F6;
+  border-color: #9CA3AF;
+  color: #4B5563;
+}
+
+@layer base {
+  * {
+    @apply border-[#1a1a1a];
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[#f0f2f5] text-[#1a1a1a] antialiased;
+    font-family: 'Space Mono', 'Courier New', monospace;
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .font-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 2px #1a1a1a;
+    text-stroke: 2px #1a1a1a;
+    font-weight: 900;
+  }
+  .text-outline-white {
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    text-stroke: 2px white;
+  }
+
+  /* Bounding Box utility */
+  .bounding-box {
+    position: relative;
+    border: 2px solid #1a1a1a;
+    background: white;
+    padding: 1rem;
+  }
+  .bounding-box::before,
+  .bounding-box::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border: 2px solid #1a1a1a;
+    z-index: 10;
+  }
+  .bounding-box::before {
+    top: -5px;
+    left: -5px;
+    border-width: 2px 2px 0 0;
+  }
+  .bounding-box::after {
+    bottom: -5px;
+    right: -5px;
+    border-width: 0 0 2px 2px;
+  }
+  .bounding-box .anchor-tr {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #1a1a1a;
+    border-width: 0 2px 2px 0;
+    background: white;
+    z-index: 10;
+  }
+  .bounding-box .anchor-bl {
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #1a1a1a;
+    border-width: 0 0 2px 2px;
+    background: white;
+    z-index: 10;
+  }
+
+  .bounding-box-transparent {
+    position: relative;
+    border: 2px solid #1a1a1a;
+    background: transparent;
+    padding: 1rem;
+  }
+  .bounding-box-transparent::before,
+  .bounding-box-transparent::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #f0f2f5;
+    border: 2px solid #1a1a1a;
+    z-index: 10;
+  }
+  .bounding-box-transparent::before {
+    top: -5px;
+    left: -5px;
+    border-width: 2px 2px 0 0;
+  }
+  .bounding-box-transparent::after {
+    bottom: -5px;
+    right: -5px;
+    border-width: 0 0 2px 2px;
+  }
+  .bounding-box-transparent .anchor-tr {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #1a1a1a;
+    border-width: 0 2px 2px 0;
+    background: #f0f2f5;
+    z-index: 10;
+  }
+  .bounding-box-transparent .anchor-bl {
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #1a1a1a;
+    border-width: 0 0 2px 2px;
+    background: #f0f2f5;
+    z-index: 10;
+  }
+
+  .card-brutalist {
+    border: 2px solid #1a1a1a;
+    background: white;
+    transition: background 0.2s ease;
+  }
+  .card-brutalist:hover {
+    background: #f5f7fa;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f0f2f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border: 2px solid #f0f2f5;
+  }
+}
+
+/* ============================================================
+   STAGGERED MARQUEE — SATU PER SATU (CLEAN VERSION)
+   ============================================================ */
+
+.marquee-stagger-1 {
+  display: block;
+  white-space: nowrap;
+  animation: marqueeStagger 10s linear infinite;
+  animation-delay: 0s;
+}
+
+.marquee-stagger-2 {
+  display: block;
+  white-space: nowrap;
+  animation: marqueeStagger 12s linear infinite;
+  animation-delay: 0.8s;
+}
+
+.marquee-stagger-3 {
+  display: block;
+  white-space: nowrap;
+  animation: marqueeStagger 15s linear infinite;
+  animation-delay: 1.6s;
+}
+
+.marquee-stagger-4 {
+  display: block;
+  white-space: nowrap;
+  animation: marqueeStagger 18s linear infinite;
+  animation-delay: 2.4s;
+}
+
+.marquee-stagger-5 {
+  display: block;
+  white-space: nowrap;
+  animation: marqueeStagger 22s linear infinite;
+  animation-delay: 3.2s;
+}
+
+@keyframes marqueeStagger {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+/* Hover pause untuk semua staggered */
+.marquee-stagger-1:hover,
+.marquee-stagger-2:hover,
+.marquee-stagger-3:hover,
+.marquee-stagger-4:hover,
+.marquee-stagger-5:hover {
+  animation-play-state: paused;
+}
+
+/* ===== RETRO BLINK (tetap) ===== */
+.retro-blink {
+  animation: retroBlink 1s step-end infinite;
+}
+
+@keyframes retroBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
